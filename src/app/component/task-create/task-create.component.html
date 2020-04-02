@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-md-4 register-task">
+      <!-- form card register -->
+      <div class="card-body">
+        <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="inputTitle">Title</label>
+            <input class="form-control" type="text" formControlName="title">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.title.errors?.required">
+              Title is required for the task.
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="inputDescription">Description</label>
+            <input class="form-control" type="text" formControlName="description">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.description.errors?.required">
+              Enter description of your task.
+            </div>
+            
+          </div>
+  
+          <div class="form-group">
+            <label for="inputDate">Date</label>
+            <input class="form-control" type="date" formControlName="date">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.date.errors?.required">
+              Choose date.
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="priority">Priority</label>
+            <input class="form-control" type="text" formControlName="priority">
+            <!-- error -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.priority.errors?.required">
+              Enter your priority of the task.
+            </div>
+            <div class="invalid-feedback" *ngIf="submitted && myForm.priority.errors?.pattern">
+              Enter Numbers Only
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit">Add</button>
+          </div>
+        </form>
+  
+      </div>
+    </div><!-- form card register -->
+  </div>

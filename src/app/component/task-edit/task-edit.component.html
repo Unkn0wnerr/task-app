@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-md-4 register-task">
+      <!-- form card register -->
+      <div class="card card-outline-secondary">
+        <div class="card-header">
+          <h3 class="mb-0">Edit Task</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+ 
+            <div class="form-group">
+              <label for="inputTitle">Title</label>
+              <input class="form-control" type="text" formControlName="title">
+              <div class="invalid-feedback" *ngIf="submitted && myForm.title.errors?.required">
+                Title is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputDescription">Description</label>
+              <input class="form-control" type="text" formControlName="description">
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.description.errors?.required">
+                Enter your description.
+              </div>
+             
+            </div>
+ 
+            <div class="form-group">
+              <label for="inputDate">Date</label>
+              <input class="form-control" type="date" formControlName="date">
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.date.errors?.required">
+                Choose date.
+              </div>
+            </div>
+ 
+            <div class="form-group">
+              <label for="inputPriority">Priority</label>
+              <input class="form-control" type="text" formControlName="priority">
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.priority.errors?.required">
+                Enter your priority.
+              </div>
+              <div class="invalid-feedback" *ngIf="submitted && myForm.priority.errors?.pattern">
+                Enter Numbers Only
+              </div>
+            </div>
+ 
+            <div class="form-group">
+              <button class="btn btn-success btn-lg btn-block" type="submit">Update</button>
+            </div>
+          </form>
+        </div>
+      </div><!-- form  -->
+    </div>
+  </div>
